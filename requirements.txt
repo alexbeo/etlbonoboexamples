@@ -1,0 +1,2 @@
+schedule~=0.6.0
+paramiko~=2.7.2
