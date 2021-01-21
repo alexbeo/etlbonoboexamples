@@ -41,10 +41,9 @@ def run_thread_process(job):
     run_thread.start()
 
 
-schedule.every().day.at('09:00').do(run_thread_process, run_extract_bank_statements_task)
-schedule.every().day.at('09:00').do(run_thread_process, run_extract_blocklist_task)
-schedule.every().day.at('09:00').do(run_thread_process, run_extract_daily_report_task)
+# schedule.every().day.at('13:02').do(run_extract_bank_statements_task)
+# schedule.every().day.at('13:03').do(run_extract_blocklist_task)
+schedule.every().day.at('13:21').do(run_extract_daily_report_task)
 
 while True:
     schedule.run_pending()
-    time.sleep(1)

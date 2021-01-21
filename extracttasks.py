@@ -32,7 +32,6 @@ def extract_files_from_imap4(
             print(raw_email)
         except TypeError:
             email_message = email.message_from_bytes(raw_email)
-            logging.error('Ошибка соеденения и сервером почты!', exc_info=False)
 
         print("--- нашли письмо от: ", email.header.make_header(email.header.decode_header(email_message['From'])))
         print(type(email.header.make_header(email.header.decode_header(email_message['From']))))
@@ -82,7 +81,7 @@ def extract_files_from_ftp(
                     input_file_path = os.path.join(dir_input, f)
                     local_file_path = os.path.join(dir_output, f)
                     sftp.get(input_file_path, local_file_path)
-            client.close()
+                client.close()
             print('----закрыли соеденение с ftp сервером')
 
         return True
